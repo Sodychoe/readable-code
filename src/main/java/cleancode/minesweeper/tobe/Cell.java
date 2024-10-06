@@ -73,4 +73,8 @@ public class Cell {
 
     return UNCHECKED_SIGN;
   }
+
+  public void updateNearbyLandMineCount(int count) {
+    this.nearbyLandMineCount = count;
+  }
 }

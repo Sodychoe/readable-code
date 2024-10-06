@@ -10,7 +10,6 @@ public class MinesweeperGame {
     public static final int BOARD_COL_SIZE = 10;
     public static final Scanner SCANNER = new Scanner(System.in);
     private static final Cell[][] BOARD = new Cell[BOARD_ROW_SIZE][BOARD_COL_SIZE];
-    private static final Integer[][] NEARBY_LAND_MINE_COUNTS = new Integer[BOARD_ROW_SIZE][BOARD_COL_SIZE];
     public static final int LAND_MINE_COUNT = 10;
 
     private static int gameStatus = 0; // 0: 게임 중, 1: 승리, -1: 패배
@@ -130,7 +129,7 @@ public class MinesweeperGame {
     private static int convertRowFrom(char cellInputRow) {
         int rowIndex = Character.getNumericValue(cellInputRow) - 1;
         if (rowIndex > BOARD_ROW_SIZE) {
-            throw new AppException("잘못된 입력입니다")
+            throw new AppException("잘못된 입력입니다");
         }
 
         return rowIndex;
@@ -174,40 +173,46 @@ public class MinesweeperGame {
             int row = new Random().nextInt(BOARD_ROW_SIZE);
             BOARD[row][col].turnOnLandMine();
         }
-//        for (int row = 0; row < BOARD_ROW_SIZE; row++) {
-//            for (int col = 0; col < BOARD_COL_SIZE; col++) {
-//                int count = 0;
-//                if (!isLandMineCell(row, col)) {
-//                    if (row - 1 >= 0 && col - 1 >= 0 && isLandMineCell(row - 1, col - 1)) {
-//                        count++;
-//                    }
-//                    if (row - 1 >= 0 && isLandMineCell(row - 1, col)) {
-//                        count++;
-//                    }
-//                    if (row - 1 >= 0 && col + 1 < BOARD_COL_SIZE && isLandMineCell(row - 1, col + 1)) {
-//                        count++;
-//                    }
-//                    if (col - 1 >= 0 && isLandMineCell(row, col - 1)) {
-//                        count++;
-//                    }
-//                    if (col + 1 < BOARD_COL_SIZE && isLandMineCell(row, col + 1)) {
-//                        count++;
-//                    }
-//                    if (row + 1 < BOARD_ROW_SIZE && col - 1 >= 0 && isLandMineCell(row + 1, col - 1)) {
-//                        count++;
-//                    }
-//                    if (row + 1 < BOARD_ROW_SIZE && isLandMineCell(row + 1, col)) {
-//                        count++;
-//                    }
-//                    if (row + 1 < BOARD_ROW_SIZE && col + BOARD_COL_SIZE < 10 && isLandMineCell(row + 1, col + 1)) {
-//                        count++;
-//                    }
-//                    NEARBY_LAND_MINE_COUNTS[row][col] = count;
-//                    continue;
-//                }
-//                NEARBY_LAND_MINE_COUNTS[row][col] = 0;
-//            }
-//        }
+        for (int row = 0; row < BOARD_ROW_SIZE; row++) {
+            for (int col = 0; col < BOARD_COL_SIZE; col++) {
+                if (isLandMineCell(row, col)) {
+                    continue;
+                }
+                int count = countNearbyLandMines(row, col);
+                BOARD[row][col].updateNearbyLandMineCount(count);
+            }
+        }
+    }
+
+    private static int countNearbyLandMines(int row, int col) {
+        int count = 0;
+
+        if (row - 1 >= 0 && col - 1 >= 0 && isLandMineCell(row - 1, col - 1)) {
+            count++;
+        }
+        if (row - 1 >= 0 && isLandMineCell(row - 1, col)) {
+            count++;
+        }
+        if (row - 1 >= 0 && col + 1 < BOARD_COL_SIZE && isLandMineCell(row - 1, col + 1)) {
+            count++;
+        }
+        if (col - 1 >= 0 && isLandMineCell(row, col - 1)) {
+            count++;
+        }
+        if (col + 1 < BOARD_COL_SIZE && isLandMineCell(row, col + 1)) {
+            count++;
+        }
+        if (row + 1 < BOARD_ROW_SIZE && col - 1 >= 0 && isLandMineCell(row + 1, col - 1)) {
+            count++;
+        }
+        if (row + 1 < BOARD_ROW_SIZE && isLandMineCell(row + 1, col)) {
+            count++;
+        }
+        if (row + 1 < BOARD_ROW_SIZE && col + BOARD_COL_SIZE < 10 && isLandMineCell(row + 1, col + 1)) {
+            count++;
+        }
+
+        return count;
     }
 
     private static void showGameStartComments() {
