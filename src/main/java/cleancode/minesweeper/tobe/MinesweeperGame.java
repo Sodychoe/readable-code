@@ -38,21 +38,24 @@ public class MinesweeperGame {
     private static void actOnCell(String cellInput, String userActionInput) {
         int selectedColIndex = getSelectedColIndex(cellInput);
         int selectedRowIndex = getSelectedRowIndex(cellInput);
+
         if (doesUserChooseToPlantFlag(userActionInput)) {
             BOARD[selectedRowIndex][selectedColIndex].flag();
             checkIfGameIsOver();
-        } else if (doesUserChooseToOpenCell(userActionInput)) {
+            return;
+        }
+
+        if (doesUserChooseToOpenCell(userActionInput)) {
             if (isLandMineCell(selectedRowIndex, selectedColIndex)) {
                 BOARD[selectedRowIndex][selectedColIndex].open();
                 changeGameStatusToLose();
                 return;
-            } else {
-                open(selectedRowIndex, selectedColIndex);
             }
+            open(selectedRowIndex, selectedColIndex);
             checkIfGameIsOver();
-        } else {
-            System.out.println("잘못된 번호를 선택하셨습니다.");
+            return;
         }
+        System.out.println("잘못된 번호를 선택하셨습니다.");
     }
 
     private static void changeGameStatusToLose() {
