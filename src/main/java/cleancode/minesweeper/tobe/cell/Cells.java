@@ -18,7 +18,7 @@ public class Cells {
   public static Cells from(Cell[][] cells) {
     List<Cell> cellList = Arrays.stream(cells)
         .flatMap(Arrays::stream)
-        .toList():
+        .toList();
 
     return Cells.of(cellList);
   }

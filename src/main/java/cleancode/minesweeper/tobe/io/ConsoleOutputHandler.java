@@ -19,7 +19,7 @@ public class ConsoleOutputHandler implements OutputHandler{
 
   @Override
   public void showBoard(GameBoard board) {
-    String alphabets = generateColAlphabets(board)
+    String alphabets = generateColAlphabets(board);
     System.out.println("   " + alphabets);
     for (int row = 0; row < board.getRowSize(); row++) {
       System.out.printf("%2d  ", row + 1);

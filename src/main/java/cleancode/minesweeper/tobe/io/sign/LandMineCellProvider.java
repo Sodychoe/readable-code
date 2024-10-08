@@ -12,6 +12,6 @@ public class LandMineCellProvider implements CellSignProvidable{
 
   @Override
   public String provide(CellSnapshot cellSnapshot) {
-    return LAND_MINE_SIGN;
+    return "";
   }
 }

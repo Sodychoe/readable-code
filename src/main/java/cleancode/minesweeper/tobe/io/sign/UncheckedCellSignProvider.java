@@ -13,6 +13,6 @@ public class UncheckedCellSignProvider implements CellSignProvidable{
 
   @Override
   public String provide(CellSnapshot cellSnapshot) {
-    return UNCHECKED_SIGN;
+    return "";
   }
 }

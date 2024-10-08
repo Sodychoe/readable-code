@@ -26,7 +26,7 @@ public class NumberCell implements Cell {
       return CellSnapshot.ofNumber(nearbyLandMineCount);
     }
     if (cellState.isFlagged()) {
-      return CellSnapshot.ofFlag()
+      return CellSnapshot.ofFlag();
     }
     return CellSnapshot.ofUnchecked();
   }

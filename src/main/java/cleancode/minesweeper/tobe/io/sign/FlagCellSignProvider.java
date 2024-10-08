@@ -12,6 +12,6 @@ public class FlagCellSignProvider implements CellSignProvidable{
 
   @Override
   public String provide(CellSnapshot cellSnapshot) {
-    return FLAG_SIGN;
+    return "";
   }
 }

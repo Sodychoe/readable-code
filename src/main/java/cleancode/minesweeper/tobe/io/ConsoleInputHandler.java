@@ -18,11 +18,11 @@ public class ConsoleInputHandler implements InputHandler{
     String userInput = SCANNER.nextLine();
 
     if ("1".equals(userInput)) {
-      return UserAction.OPEN
+      return UserAction.OPEN;
     }
 
     if ("2".equals(userInput)) {
-      return UserAction.FLAG
+      return UserAction.FLAG;
     }
 
     return UserAction.UNKNOWN;

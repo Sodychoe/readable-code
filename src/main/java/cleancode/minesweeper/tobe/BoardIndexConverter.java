@@ -3,14 +3,14 @@ package cleancode.minesweeper.tobe;
 public class BoardIndexConverter {
   private static final char BASE_CHAR_FOR_COL = 'a';
 
-  public int getSelectedRowIndex(String cellInput, int rowSize) {
+  public int getSelectedRowIndex(String cellInput) {
     String cellInputRow = cellInput.substring(1);
-    return convertRowFrom(cellInputRow, rowSize);
+    return convertRowFrom(cellInputRow);
   }
 
-  public int getSelectedColIndex(String cellInput, int colSize) {
+  public int getSelectedColIndex(String cellInput) {
     char cellInputCol = cellInput.charAt(0);
-    return convertColFrom(cellInputCol, colSize);
+    return convertColFrom(cellInputCol);
   }
 
   private int convertRowFrom(String cellInputRow) {

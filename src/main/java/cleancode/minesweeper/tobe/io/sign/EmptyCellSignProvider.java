@@ -13,6 +13,6 @@ public class EmptyCellSignProvider implements CellSignProvidable{
 
   @Override
   public String provide(CellSnapshot cellSnapshot) {
-    return EMPTY_SIGN;
+    return "";
   }
 }
