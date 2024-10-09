@@ -7,14 +7,6 @@ public class CellSnapshot {
   private final CellSnapshotStatus status;
   private final int nearbyLandMineCount;
 
-  public CellSnapshotStatus getStatus() {
-    return status;
-  }
-
-  public int getNearbyLandMineCount() {
-    return nearbyLandMineCount;
-  }
-
   private CellSnapshot(CellSnapshotStatus status, int nearbyLandMineCount) {
     this.status = status;
     this.nearbyLandMineCount = nearbyLandMineCount;
@@ -42,6 +34,14 @@ public class CellSnapshot {
 
   public static CellSnapshot ofUnchecked() {
     return of(CellSnapshotStatus.UNCHECKED, 0);
+  }
+
+  public CellSnapshotStatus getStatus() {
+    return status;
+  }
+
+  public int getNearbyLandMineCount() {
+    return nearbyLandMineCount;
   }
 
   public boolean isSameStatus(CellSnapshotStatus cellSnapshotStatus) {

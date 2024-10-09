@@ -6,10 +6,10 @@ import cleancode.minesweeper.tobe.minesweeper.board.cell.Cells;
 import cleancode.minesweeper.tobe.minesweeper.board.cell.EmptyCell;
 import cleancode.minesweeper.tobe.minesweeper.board.cell.LandMineCell;
 import cleancode.minesweeper.tobe.minesweeper.board.cell.NumberCell;
-import cleancode.minesweeper.tobe.minesweeper.gameLevel.GameLevel;
 import cleancode.minesweeper.tobe.minesweeper.board.position.CellPosition;
 import cleancode.minesweeper.tobe.minesweeper.board.position.CellPositions;
 import cleancode.minesweeper.tobe.minesweeper.board.position.RelativePosition;
+import cleancode.minesweeper.tobe.minesweeper.gameLevel.GameLevel;
 import java.util.List;
 import java.util.Stack;
 
@@ -97,7 +97,7 @@ public class GameBoard {
   }
 
   private void changeGameStatusToWin() {
-    gameStatus =  GameStatus.WIN;
+    gameStatus = GameStatus.WIN;
   }
 
   public boolean isLandMineCellAt(CellPosition cellPosition) {
@@ -118,7 +118,7 @@ public class GameBoard {
     surroundedPositions.forEach(this::openSurroundedCells);
   }
 
-  private void openSurroundedCells(CellPosition cellPosition){
+  private void openSurroundedCells(CellPosition cellPosition) {
     Stack<CellPosition> stack = new Stack<>();
     stack.push(cellPosition);
 
@@ -130,10 +130,10 @@ public class GameBoard {
   private void openAndPushCellAt(Stack<CellPosition> stack) {
     CellPosition currentCellPosition = stack.pop();
 
-    if (isOpenedCell(currentCellPosition)){
+    if (isOpenedCell(currentCellPosition)) {
       return;
     }
-    if (isLandMineCellAt(currentCellPosition)){
+    if (isLandMineCellAt(currentCellPosition)) {
       return;
     }
 
@@ -208,7 +208,7 @@ public class GameBoard {
   }
 
   private void changeGameStatusToLose() {
-    gameStatus =  GameStatus.LOSE;
+    gameStatus = GameStatus.LOSE;
   }
 
   public boolean isWinStatus() {

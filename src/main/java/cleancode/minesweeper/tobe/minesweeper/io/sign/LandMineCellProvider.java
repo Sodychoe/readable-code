@@ -3,7 +3,7 @@ package cleancode.minesweeper.tobe.minesweeper.io.sign;
 import cleancode.minesweeper.tobe.minesweeper.board.cell.CellSnapshot;
 import cleancode.minesweeper.tobe.minesweeper.board.cell.CellSnapshotStatus;
 
-public class LandMineCellProvider implements CellSignProvidable{
+public class LandMineCellProvider implements CellSignProvidable {
 
   @Override
   public boolean supports(CellSnapshot cellSnapshot) {

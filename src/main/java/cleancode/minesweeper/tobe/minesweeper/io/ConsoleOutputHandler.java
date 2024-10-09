@@ -1,15 +1,16 @@
 package cleancode.minesweeper.tobe.minesweeper.io;
 
 import cleancode.minesweeper.tobe.minesweeper.board.GameBoard;
-import cleancode.minesweeper.tobe.minesweeper.exception.GameException;
 import cleancode.minesweeper.tobe.minesweeper.board.cell.CellSnapshot;
-import cleancode.minesweeper.tobe.minesweeper.io.sign.CellSignProvider;
 import cleancode.minesweeper.tobe.minesweeper.board.position.CellPosition;
+import cleancode.minesweeper.tobe.minesweeper.exception.GameException;
+import cleancode.minesweeper.tobe.minesweeper.io.sign.CellSignProvider;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.IntStream;
 
-public class ConsoleOutputHandler implements OutputHandler{
+public class ConsoleOutputHandler implements OutputHandler {
+
   @Override
   public void showGameStartComments() {
     System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");

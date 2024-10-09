@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class RelativePosition {
+
   public static final List<RelativePosition> RELATIVE_POSITIONS = List.of(
       RelativePosition.of(-1, -1),
       RelativePosition.of(-1, 0),

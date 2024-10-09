@@ -1,6 +1,7 @@
 package cleancode.minesweeper.tobe.minesweeper.board.cell;
 
 public class CellState {
+
   private boolean isFlagged;
   private boolean isOpened;
 
