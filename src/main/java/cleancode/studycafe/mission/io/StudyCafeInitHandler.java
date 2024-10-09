@@ -5,11 +5,13 @@ import cleancode.studycafe.mission.model.StudyCafePass;
 import cleancode.studycafe.mission.model.StudyCafePassType;
 import java.util.List;
 
-public interface StudyCafeInitHandler {
+public abstract class StudyCafeInitHandler {
 
-  List<StudyCafePass> readStudyCafePasses();
+  protected abstract List<StudyCafePass> readStudyCafePasses();
 
-  List<StudyCafeLockerPass> readLockerPasses();
+  protected abstract List<StudyCafeLockerPass> readLockerPasses();
 
-  List<StudyCafePass> getSelectablePassesForUserSelection(StudyCafePassType passTypeSelectingUserAction);
+  public abstract List<StudyCafePass> getSelectablePassesForUserSelection(StudyCafePassType passTypeSelectingUserAction);
+
+  public abstract StudyCafeLockerPass getSelectableLockerPassesForUserSelection(StudyCafePass passSelectingUserAction);
 }
