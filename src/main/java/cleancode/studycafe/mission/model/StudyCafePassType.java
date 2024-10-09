@@ -1,4 +1,4 @@
-package cleancode.studycafe.tobe.model;
+package cleancode.studycafe.mission.model;
 
 public enum StudyCafePassType {
 
@@ -6,10 +6,14 @@ public enum StudyCafePassType {
     WEEKLY("주 단위 이용권"),
     FIXED("1인 고정석");
 
-    private final String description;
-
     StudyCafePassType(String description) {
         this.description = description;
+    }
+
+    private final String description;
+
+    public boolean isSamePassType(StudyCafePassType passType) {
+        return this == passType;
     }
 
 }

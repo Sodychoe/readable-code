@@ -1,8 +1,8 @@
-package cleancode.studycafe.tobe.io;
+package cleancode.studycafe.mission.io;
 
-import cleancode.studycafe.tobe.model.StudyCafeLockerPass;
-import cleancode.studycafe.tobe.model.StudyCafePass;
-import cleancode.studycafe.tobe.model.StudyCafePassType;
+import cleancode.studycafe.mission.model.StudyCafeLockerPass;
+import cleancode.studycafe.mission.model.StudyCafePass;
+import cleancode.studycafe.mission.model.StudyCafePassType;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -56,5 +56,14 @@ public class StudyCafeFileHandler implements StudyCafeInitHandler{
     }
   }
 
+  @Override
+  public List<StudyCafePass> getSelectablePassesForUserSelection(StudyCafePassType passTypeSelectingUserAction) {
+    List<StudyCafePass> passList = readStudyCafePasses();
+    List<StudyCafePass> passesForSelectingPassType = passList.stream()
+        .filter(passType -> passType.getPassType().isSamePassType(passTypeSelectingUserAction))
+        .toList();
+
+    return passesForSelectingPassType;
+  }
 }
 

@@ -1,9 +1,9 @@
-package cleancode.studycafe.tobe;
+package cleancode.studycafe.mission;
 
-import cleancode.studycafe.tobe.io.InputHandler;
-import cleancode.studycafe.tobe.io.OutputHandler;
-import cleancode.studycafe.tobe.io.StudyCafeFileHandler;
-import cleancode.studycafe.tobe.io.StudyCafeInitHandler;
+import cleancode.studycafe.mission.io.InputHandler;
+import cleancode.studycafe.mission.io.OutputHandler;
+import cleancode.studycafe.mission.io.StudyCafeFileHandler;
+import cleancode.studycafe.mission.io.StudyCafeInitHandler;
 
 public class StudyCafeApplication {
 

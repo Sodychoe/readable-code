@@ -1,12 +1,12 @@
-package cleancode.studycafe.tobe;
+package cleancode.studycafe.mission;
 
-import cleancode.studycafe.tobe.exception.AppException;
-import cleancode.studycafe.tobe.io.InputHandler;
-import cleancode.studycafe.tobe.io.OutputHandler;
-import cleancode.studycafe.tobe.io.StudyCafeInitHandler;
-import cleancode.studycafe.tobe.model.StudyCafeLockerPass;
-import cleancode.studycafe.tobe.model.StudyCafePass;
-import cleancode.studycafe.tobe.model.StudyCafePassType;
+import cleancode.studycafe.mission.exception.AppException;
+import cleancode.studycafe.mission.io.InputHandler;
+import cleancode.studycafe.mission.io.OutputHandler;
+import cleancode.studycafe.mission.io.StudyCafeInitHandler;
+import cleancode.studycafe.mission.model.StudyCafeLockerPass;
+import cleancode.studycafe.mission.model.StudyCafePass;
+import cleancode.studycafe.mission.model.StudyCafePassType;
 import java.util.List;
 
 public class StudyCafePassMachine {
@@ -29,11 +29,18 @@ public class StudyCafePassMachine {
             outputHandler.askPassTypeSelection();
             StudyCafePassType passTypeSelectingUserAction = inputHandler.getPassTypeSelectingUserAction(); // 사용자에게 입력을 받는다
 
+            List<StudyCafePass> selectablePassesForUserSelection = studyCafeInitHandler.getSelectablePassesForUserSelection(
+                passTypeSelectingUserAction);
+
+            outputHandler.showPassListForSelection(selectablePassesForUserSelection);
+            StudyCafePass selectedPass = inputHandler.getSelectPass(selectablePassesForUserSelection);
+            outputHandler.showPassOrderSummary(selectedPass, null);
+
 
 
             if (passTypeSelectingUserAction == StudyCafePassType.HOURLY) {
-                List<StudyCafePass> studyCafePasses = studyCafeInitHandler.readStudyCafePasses();
-                List<StudyCafePass> hourlyPasses = studyCafePasses.stream()
+                List<StudyCafePass> passList = studyCafeInitHandler.readStudyCafePasses();
+                List<StudyCafePass> hourlyPasses = passList.stream()
                     .filter(studyCafePass -> studyCafePass.getPassType() == StudyCafePassType.HOURLY)
                     .toList();
                 outputHandler.showPassListForSelection(hourlyPasses);
