@@ -13,5 +13,5 @@ public abstract class StudyCafeInitHandler {
 
   public abstract List<StudyCafePass> getSelectablePassesForUserSelection(StudyCafePassType passTypeSelectingUserAction);
 
-  public abstract StudyCafeLockerPass getSelectableLockerPassesForUserSelection(StudyCafePass passSelectingUserAction);
+  public abstract StudyCafeLockerPass getSelectableLockerPassForUserSelection(StudyCafePass passSelectingUserAction);
 }

@@ -15,6 +15,7 @@ public class StudyCafeFileHandler extends StudyCafeInitHandler{
   public static final String STUDYCAFE_PASS_LIST_CSV = "src/main/resources/cleancode/studycafe/pass-list.csv";
   public static final String STUDYCAFE_LOCKER_CSV = "src/main/resources/cleancode/studycafe/locker.csv";
 
+  @Override
   protected final List<StudyCafePass> readStudyCafePasses() {
     try {
       List<String> studyCafePassLines = Files.readAllLines(Paths.get(STUDYCAFE_PASS_LIST_CSV));
@@ -39,6 +40,7 @@ public class StudyCafeFileHandler extends StudyCafeInitHandler{
     return studyCafePasses;
   }
 
+  @Override
   protected final List<StudyCafeLockerPass> readLockerPasses() {
     try {
       List<String> studyCafeLockPassLines = Files.readAllLines(Paths.get(STUDYCAFE_LOCKER_CSV));
@@ -66,15 +68,14 @@ public class StudyCafeFileHandler extends StudyCafeInitHandler{
   @Override
   public List<StudyCafePass> getSelectablePassesForUserSelection(StudyCafePassType passTypeSelectingUserAction) {
     List<StudyCafePass> passList = readStudyCafePasses();
-    List<StudyCafePass> passesForSelectingPassType = passList.stream()
+
+    return passList.stream()
         .filter(passType -> passType.getPassType().isSamePassType(passTypeSelectingUserAction))
         .toList();
-
-    return passesForSelectingPassType;
   }
 
   @Override
-  public StudyCafeLockerPass getSelectableLockerPassesForUserSelection(StudyCafePass passSelectingUserAction) {
+  public StudyCafeLockerPass getSelectableLockerPassForUserSelection(StudyCafePass passSelectingUserAction) {
     List<StudyCafeLockerPass> lockerPassList = readLockerPasses();
     return lockerPassList.stream()
         .filter(option ->
