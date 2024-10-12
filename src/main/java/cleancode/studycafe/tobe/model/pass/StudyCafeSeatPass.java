@@ -49,8 +49,13 @@ public class StudyCafeSeatPass implements StudyCafePass{
         && this.duration == lockerPass.getDuration();
   }
 
-
   public boolean cannotUseLocker() {
-    return this.passType.isNotLockerType()
+    return this.passType.isNotLockerType();
+  }
+
+  public int getDisCountPrice() {
+    int discountPrice = (int) (this.price * this.discountRate);
+
+    return discountPrice;
   }
 }

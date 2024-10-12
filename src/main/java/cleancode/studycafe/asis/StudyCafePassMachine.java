@@ -7,7 +7,6 @@ import cleancode.studycafe.asis.io.StudyCafeFileHandler;
 import cleancode.studycafe.asis.model.StudyCafeLockerPass;
 import cleancode.studycafe.asis.model.StudyCafePass;
 import cleancode.studycafe.asis.model.StudyCafePassType;
-
 import java.util.List;
 
 public class StudyCafePassMachine {
