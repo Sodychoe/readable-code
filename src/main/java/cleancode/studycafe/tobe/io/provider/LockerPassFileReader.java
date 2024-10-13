@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LockerPassProvider implements cleancode.studycafe.tobe.provider.LockerPassProvider {
+public class LockerPassFileReader implements cleancode.studycafe.tobe.provider.LockerPassProvider {
 
   @Override
   public StudyCafeLockerPasses getLockerPasses() {
